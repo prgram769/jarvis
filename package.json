@@ -1,0 +1,5 @@
+{
+  "name": "ollama",
+  "main": "mainScript.js",
+  "type": "module"
+}
