@@ -33,6 +33,11 @@ async function main() {
     textToVoice.pitch = 0.8;
     textToVoice.lang = 'es-ES';
     speechSynthesis.speak(textToVoice);
+    document.addEventListener("keydown", function(event) {
+      if (event.key == "-") {
+        speechSynthesis.cancel();
+      }
+    })
     console.log(data.message.content);
 
   }

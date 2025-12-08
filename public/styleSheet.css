@@ -19,20 +19,25 @@ body {
   border: 3px solid #ABABAB;
   border-radius: 50px;
   background-color: #4677AB;
-  animation: beat 1s infinite;
+  animation: beat 1.5s infinite;
+  animation-timing-function: ease-in-out;
+  box-shadow: 0 0 30px white;
 }
 
 @keyframes beat {
   0% {
-    transform: scale(1)
-    	rotate();
+    transform: scale(1);
+    box-shadow: 0 0 30px white;
   }
   20% {
-    transform: scale(1.25)
-    	rotate(-45deg);
+    transform: scale(1.25);
+
+    background-color: #275BF5;
+    box-shadow: 0 0 20px white;
   }
   40% {
-    transform: scale(1.5)
-    	rotate(-45deg);
+    transform: scale(1.5);
+    background-color: #5A27F5;
+    box-shadow: 0 0 10px white;
   }
 }
