@@ -13,6 +13,10 @@ async function main() {
     }
   })
 
+  document.querySelector("button").addEventListener("click", (e) => {
+    recognition.start();
+  })
+
   recognition.onresult = async (event) => {
     talked = event.results[event.results.length - 1][0].transcript;
 
@@ -28,16 +32,24 @@ async function main() {
     const data = await response.json();
 
     const textToVoice = new SpeechSynthesisUtterance();
+
     textToVoice.text = data.message.content;
     textToVoice.rate = 1.2;
     textToVoice.pitch = 0.8;
     textToVoice.lang = 'es-ES';
+
     speechSynthesis.speak(textToVoice);
+
     document.addEventListener("keydown", function(event) {
       if (event.key == "-") {
         speechSynthesis.cancel();
       }
     })
+
+    document.querySelector("button").addEventListener("dblclick", (e) =>{
+      speechSynthesis.cancel();
+    })
+
     console.log(data.message.content);
 
   }
